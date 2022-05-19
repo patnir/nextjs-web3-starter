@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  app:
+    build: ./app
+    working_dir: /app
+    restart: always
+    volumes:
+      - ./app:/app
+    ports:
+      - 3000:3000
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/development?connect_timeout=30
+      SEED_DB: "true"
+
+  db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: development
+  
+  contracts:
+    build: ./smartcontracts
+    working_dir: /home/contracts
+    volumes:
+      - ./smartcontracts:/home/contracts
+      - ./app/contracts:/home/app/contracts
+    ports:
+      - 8545:8545
