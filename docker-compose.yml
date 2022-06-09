@@ -11,7 +11,8 @@ services:
       - 3000:3000
     environment:
       DATABASE_URL: postgresql://user:password@db:5432/development?connect_timeout=30
-      SEED_DB: "true"
+      NEXT_PUBLIC_ETHEREUM_NETWORK_ID: 31337
+      SEED_DB: true
 
   db:
     image: postgres:latest
