@@ -9,3 +9,37 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id String @id @default(cuid())
+
+  accounts Account[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Account {
+  id                    String  @id @default(cuid())
+  userId                String  @map("user_id")
+  provider              String
+  providerAccountId     String  @map("provider_account_id")
+  providerUsername      String? @map("provider_username")
+  providerEmail         String? @map("provider_email")
+  accessToken           String? @map("access_token") @db.Text
+  refreshToken          String? @map("refresh_token") @db.Text
+  refreshTokenExpiresAt Int?    @map("refresh_token_expires_at")
+  tokenType             String? @map("token_type")
+  scope                 String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+  @@map("accounts")
+}
