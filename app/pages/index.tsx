@@ -8,7 +8,10 @@ const ConnectedView = () => {
   return (
     <>
       <p>{`Welcome, ${session.data?.walletAddress}.`}</p>
-      <button onClick={() => signOut()}>
+      <button
+        className="bg-red-600 py-2 px-4 rounded-full text-white"
+        onClick={() => signOut()}
+      >
         {`Disconnect wallet`}
       </button>
     </>
@@ -18,7 +21,10 @@ const ConnectedView = () => {
 const DisconnectedView = () => {
   return (
     <>
-      <button onClick={signInWithWallet}>
+      <button
+        className="bg-sky-600 py-2 px-4 rounded-full text-white"
+        onClick={signInWithWallet}
+      >
         {`Connect wallet`}
       </button>
     </>
@@ -29,9 +35,9 @@ const Home: NextPage = () => {
   const session = useSession();
 
   return (
-    <>
+    <div className="p-5">
       {session.data ? <ConnectedView /> : <DisconnectedView />}
-    </>
+    </div>
   );
 };
 
