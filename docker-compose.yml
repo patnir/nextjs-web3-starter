@@ -11,8 +11,9 @@ services:
       - 3000:3000
     environment:
       DATABASE_URL: postgresql://user:password@db:5432/development?connect_timeout=30
-      NEXT_PUBLIC_ETHEREUM_NETWORK_ID: 31337
-      SEED_DB: true
+      NEXTAUTH_SECRET: "s3cr3t"
+      NEXTAUTH_URL: "http://localhost:3000"
+      NEXT_PUBLIC_ETHEREUM_NETWORK_ID: "31337"
 
   db:
     image: postgres:latest
@@ -23,7 +24,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: development
-  
+
   contracts:
     build: ./smartcontracts
     working_dir: /home/contracts

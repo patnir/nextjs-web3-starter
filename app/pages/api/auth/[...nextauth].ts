@@ -23,6 +23,8 @@ if (process.env.NODE_ENV === "development") {
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   return NextAuth(req, res, {
+    secret: process.env.NEXTAUTH_SECRET,
+
     providers: [
       // Derived from: https://github.com/nextauthjs/next-auth/issues/3292
       CredentialsProvider({
