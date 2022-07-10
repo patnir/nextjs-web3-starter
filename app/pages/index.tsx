@@ -21,8 +21,8 @@ const Home: NextPage = () => {
             href="#"
           >
             {`Buy now for `}
-            <s>{`$500`}</s>
-            {` $400`}
+            <s>{`$499`}</s>
+            {` $399`}
           </a>
         </header>
 
