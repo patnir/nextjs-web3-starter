@@ -33,7 +33,8 @@
     "typescript": "^4.6.3"
   },
   "scripts": {
-    "test": "hardhat test test/Cypherpunk.test.ts"
+    "test": "hardhat test test/Cypherpunk.test.ts",
+    "deploy-localhost": "npx hardhat run scripts/deploy.ts --network localhost"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.6.0"

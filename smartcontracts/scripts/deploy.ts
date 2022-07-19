@@ -1,19 +1,22 @@
+import { writeFileSync } from "fs";
 import { ethers } from "hardhat";
-const fs = require("fs");
 
 async function main() {
-  const Greeter = await ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const Cypherpunk = await ethers.getContractFactory("Cypherpunk");
+  const contract = await Cypherpunk.deploy(
+    "https://ikzttp.mypinata.cloud/ipfs/QmQFkLSQysj94s5GvTHPyzTxrawwtjgiiYS2TBLgrvw8CW/",
+    ethers.utils.parseEther("0.05")
+  );
 
-  await greeter.deployed();
+  await contract.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
-  writeContractAddressToFile("greeterAddress", greeter.address);
+  console.log("Cypherpunk deployed to:", contract.address);
+  writeContractAddressToFile("contract", contract.address);
 }
 
 function writeContractAddressToFile(filename: string, contractAddress: string) {
   try {
-    fs.writeFileSync(
+    writeFileSync(
       `./${filename}.json`,
       JSON.stringify({
         contractAddress: contractAddress,
