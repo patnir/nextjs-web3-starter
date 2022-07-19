@@ -4,7 +4,7 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Cpyherpunk is ERC721, Ownable {
+contract Cypherpunk is ERC721, Ownable {
     uint256 public constant MAX_PUNKS = 10000;
     uint256 public total = 0;
     string private baseURI;
