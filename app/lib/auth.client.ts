@@ -36,7 +36,6 @@ if (typeof window !== "undefined") {
 export async function signInWithWallet() {
   let provider = await web3Modal.connect();
   provider.on("chainChanged", signOut);
-  provider.on("networkChanged", signOut);
   provider.on("disconnect", signOut);
 
   // `signIn` returns null when validation fails. User will need to connect
