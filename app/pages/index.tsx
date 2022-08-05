@@ -14,16 +14,21 @@ const Home: NextPage = () => {
             {`
               A modern, full-stack Next.js & Web3 boilerplate with Docker, TypeScript, Hardhat, NextAuth.js,
               Tailwind, Postgres, and painless local development for your next Web3 project.
-            `} 
+            `}
           </p>
-
+          
+          <div className="max-w-xl mx-auto text-xl">
           <a
-            className="inline-block p-3 border border-t-2 border-t-purple-500 rounded shadow-md mt-8 font-medium"
+            className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium"
             href="#"
           >
             {`Get it on Gumroad`}
           </a>
-          <Link href={"/demo"}>Go to demo!</Link>
+          <Link href={"/demo"}>
+            <button className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium">See it in action!</button>
+          </Link>
+          
+          </div>
         </header>
 
         <section className="flex flex-col lg:grid grid-cols-[40%_1fr] align-center gap-5 lg:gap-14">
@@ -108,7 +113,7 @@ const Home: NextPage = () => {
                 {` ⠿ Container nextjs-web3-starter-app-1        Created  0.0s\n`}
                 {` ⠿ Container nextjs-web3-starter-db-1         Created  0.0s\n`}
                 {` ⠿ Container nextjs-web3-starter-contracts-1  Created  0.0s`}
-             </span>
+              </span>
             </code>
           </pre>
         </section>
