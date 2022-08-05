@@ -2,7 +2,7 @@
   "name": "hardhat-project",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
-    "@nomiclabs/hardhat-etherscan": "^3.0.3",
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
     "@typechain/ethers-v5": "^7.2.0",
     "@typechain/hardhat": "^2.3.1",
@@ -12,7 +12,7 @@
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "chai": "^4.3.6",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^16.0.3",
@@ -34,7 +34,9 @@
   },
   "scripts": {
     "test": "hardhat test test/Cypherpunk.test.ts",
-    "deploy-localhost": "npx hardhat run scripts/deploy.ts --network localhost"
+    "deploy-localhost": "npx hardhat run scripts/deploy.ts --network localhost",
+    "deploy-testnet": "npx hardhat run scripts/deployTestnet.ts --network goerli",
+    "verify-contract": "npx hardhat verify --network goerli 0x0E74637a4B896e6a6fA8A272d7C566F0A32601fa --constructor-args constructor-args.js"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.6.0"
