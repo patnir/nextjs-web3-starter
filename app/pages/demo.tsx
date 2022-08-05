@@ -71,7 +71,7 @@ const ConnectedView = () => {
           {`Disconnect wallet`}
         </button>
         <button
-          className={`bg-green-600 py-2 px-4 rounded-full text-white ${loading ? 'bg-gray-600' : 'bg-green-600'}`}
+          className={`py-2 px-4 rounded-full text-white ${loading ? 'bg-gray-600' : 'bg-green-600'}`}
           disabled={loading}
           onClick={async () => await mintNFT()}
         >
