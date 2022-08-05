@@ -29,7 +29,7 @@ const ConnectedView = () => {
   }
 
   useEffect(() => {
-    if (nftBalance >= 0) {
+    if (nftBalance >= 0 && process.env.SHOW_NFTS) {
       getNFTs()
     }
   }, [nftBalance])
