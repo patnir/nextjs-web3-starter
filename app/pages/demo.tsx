@@ -2,12 +2,13 @@ import { signInWithWallet } from "lib/auth.client";
 import { getBalance, mint } from "lib/chain.client";
 import type { NextPage } from "next";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const ConnectedView = () => {
   const session = useSession();
   const [nftBalance, setNFTBalance] = useState(-1)
+  const [transactionLink, setTransactionLink] = useState('')
+  const [loading, setLoading] = useState(false);
   const [nfts, setNFTs] = useState([])
 
   const getNFTs = async () => {
@@ -20,6 +21,7 @@ const ConnectedView = () => {
 
       if (response.status == 200) {
         const result = await response.json()
+        console.log('owned nfts')
         console.log(result)
         setNFTs(result['ownedNfts'])
       }
@@ -32,20 +34,29 @@ const ConnectedView = () => {
     }
   }, [nftBalance])
 
+  const balance = async () => {
+    if (session.data?.walletAddress) {
+      const result: any = await getBalance(session);
+      if (result) {
+        setNFTBalance(parseFloat(result.toString()))
+      }
+    }
+  }
+
   useEffect(() => {
     console.log('useeffect')
 
-    const balance = async () => {
-      if (session.data?.walletAddress) {
-        const result: any = await getBalance(session);
-        if (result) {
-          setNFTBalance(parseFloat(result.toString()))
-        }
-      }
-    }
-
     balance()
   }, [session])
+
+
+  const mintNFT = async () => {
+    setLoading(true)
+    const result = await mint();
+    await balance()
+    setLoading(false)
+    setTransactionLink(result["transactionHash"])
+  }
 
   return (
     <>
@@ -53,39 +64,49 @@ const ConnectedView = () => {
 
       <div className="flex gap-4 my-4">
         <button
-          className="bg-red-600 py-2 px-4 rounded-full text-white"
+          className={`bg-red-600 py-2 px-4 rounded-full text-white ${loading ? 'disabled' : ''}`}
           onClick={() => signOut()}
         >
           {`Disconnect wallet`}
         </button>
-        {nftBalance >= 0 && <p>Current balance: {nftBalance}</p>}
         <button
-          className="bg-green-600 py-2 px-4 rounded-full text-white"
-          onClick={async () => await mint()}
+          className={`bg-green-600 py-2 px-4 rounded-full text-white ${loading ? 'disabled' : ''}`}
+          onClick={async () => await mintNFT()}
         >
           Mint
         </button>
-      </div>
-      {nfts &&
-        <div className="grid md:grid-cols-4 md:gap-4 lg:grid-cols-8 lg:gap-8 grid-cols-2  gap-2">
-          {nfts.map((nft) => {
-            let image_link = nft['metadata']['image'] as string;
-            try {
-              if (image_link.startsWith('ipfs')) {
-                const split = image_link.split('/')
-                image_link = `https://ipfs.io/ipfs/${split[2]}/${split[3]}`
-              }
-              return <div>
-                <img width={500} height={500} src={image_link} />
-              </div>
-            } catch (error) {
-              console.log('error')
-              console.log(error)
-              return;
-            }
-          })}
-        </div>}
 
+      </div>
+      <div>
+        {nftBalance >= 0 && <p>Current Cypherpunk balance: {nftBalance}</p>}
+      </div>
+      {loading && <div>loading...</div>}
+      {transactionLink && <a href={`https://goerli.etherscan.io/tx/${transactionLink}`}>Your transaction link</a>}
+
+      {nfts && process.env.SHOW_NFTS &&
+        <><div className="text-lg">
+          Your NFTs
+        </div>
+          <div className="grid md:grid-cols-4 md:gap-4 lg:grid-cols-8 lg:gap-8 grid-cols-2  gap-2">
+            {nfts.map((nft) => {
+              let image_link = nft['metadata']['image'] as string;
+              try {
+                if (image_link.startsWith('ipfs')) {
+                  const split = image_link.split('/')
+                  image_link = `https://ipfs.io/ipfs/${split[2]}/${split[3]}`
+                }
+                return <div>
+                  <img width={500} height={500} src={image_link} />
+                </div>
+              } catch (error) {
+                console.log('error')
+                console.log(error)
+                return;
+              }
+            })}
+          </div>
+        </>
+      }
     </>
   );
 };

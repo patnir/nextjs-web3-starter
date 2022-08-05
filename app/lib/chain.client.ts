@@ -73,5 +73,5 @@ export async function mint() {
     value: price,
   });
   const result = await transaction.wait();
-  console.log(result);
+  return result
 }
