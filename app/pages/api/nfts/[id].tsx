@@ -9,7 +9,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         if (!session) {
             return res.status(401).json({ error: "Unauthorized" });
         }
-        const result = await fetch(`https://eth-mainnet.g.alchemy.com/nft/v2/demo/getNFTs?owner=${'0xd80Bb063ed2937b7E413CcfcebA7B31A56dcB7B6'}&withMetadata=true`)
+        const result = await fetch(`https://eth-mainnet.g.alchemy.com/nft/v2/demo/getNFTs?owner=${id}&withMetadata=true`)
         console.log(result);
         const nfts = await result.json();
         res.status(200).json(nfts);
