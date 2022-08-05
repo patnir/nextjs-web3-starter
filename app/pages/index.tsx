@@ -16,18 +16,19 @@ const Home: NextPage = () => {
               Tailwind, Postgres, and painless local development for your next Web3 project.
             `}
           </p>
-          
+
           <div className="max-w-xl mx-auto text-xl">
-          <a
-            className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium"
-            href="#"
-          >
-            {`Get it on Gumroad`}
-          </a>
-          <Link href={"/demo"}>
-            <button className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium">See it in action!</button>
-          </Link>
-          
+            <a
+              target="_blank" rel="noopener noreferrer"
+              className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium"
+              href="https://rpatnir.gumroad.com/l/evmjs"
+            >
+              {`Get it on Gumroad`}
+            </a>
+            <Link href={"/demo"}>
+              <button className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium">See it in action!</button>
+            </Link>
+
           </div>
         </header>
 
