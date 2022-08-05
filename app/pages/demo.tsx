@@ -84,7 +84,7 @@ const ConnectedView = () => {
       </div>
       {loading && <div>loading...</div>}
       {transactionLink && <div className='flex'><p>Success!</p><a target="_blank" rel="noopener noreferrer" className="underline text-blue-400" href={`https://goerli.etherscan.io/tx/${transactionLink}`}>Your transaction link</a></div>}
-      <a className="underline text-blue-400 pt-10" target="_blank" rel="noopener noreferrer" href="https://goerlifaucet.com/">Dont' have test ETH?</a>
+      <a className="underline text-blue-400 pt-10" target="_blank" rel="noopener noreferrer" href="https://goerlifaucet.com/">{"Get test ETH here."}</a>
       {nfts && process.env.SHOW_NFTS &&
         <><div className="text-lg">
           Your NFTs
