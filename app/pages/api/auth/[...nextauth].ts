@@ -7,7 +7,10 @@ import {
   toBuffer,
 } from "ethereumjs-util";
 import { PROVIDERS } from "lib/providers.server";
-import { createAccountWithUser, getAccountByProviderAccountId } from "models/account.server";
+import {
+  createAccountWithUser,
+  getAccountByProviderAccountId,
+} from "models/account.server";
 import { getUser } from "models/user.server";
 import type { NextApiRequest, NextApiResponse } from "next";
 import NextAuth from "next-auth";
@@ -53,7 +56,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           }
 
           // Fetch account record.
-          let account = await getAccountByProviderAccountId(PROVIDERS.ETHEREUM, address);
+          let account = await getAccountByProviderAccountId(
+            PROVIDERS.ETHEREUM,
+            address
+          );
           if (!account) {
             account = await createAccountWithUser(PROVIDERS.ETHEREUM, address);
           }

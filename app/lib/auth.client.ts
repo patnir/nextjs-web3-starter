@@ -26,8 +26,7 @@ if (typeof window !== "undefined") {
         hover: "rgb(16, 26, 32)",
       },
     });
-  } catch (error) {
-  }
+  } catch (error) {}
 }
 
 /**

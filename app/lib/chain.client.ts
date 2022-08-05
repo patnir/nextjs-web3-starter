@@ -26,7 +26,6 @@ export async function getConnectedContract() {
     "0x" +
     parseInt(process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID || "1").toString(16);
 
-
   console.log("process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID");
   console.log(process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID);
 
@@ -56,8 +55,8 @@ export async function getConnectedContract() {
 export async function getBalance(session: any) {
   const connectedContract = await getConnectedContract();
   if (!connectedContract) return;
-  const result = await connectedContract.balanceOf(session.data.walletAddress)
-  return result
+  const result = await connectedContract.balanceOf(session.data.walletAddress);
+  return result;
 }
 
 export async function getPrice(connectedContract: ethers.Contract) {
@@ -73,5 +72,5 @@ export async function mint() {
     value: price,
   });
   const result = await transaction.wait();
-  return result
+  return result;
 }

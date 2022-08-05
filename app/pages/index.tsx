@@ -16,19 +16,21 @@ const Home: NextPage = () => {
               Tailwind, Postgres, and painless local development for your next Web3 project.
             `}
           </p>
-          
+
           <div className="max-w-xl mx-auto text-xl">
-          <a
-              target="_blank" rel="noopener noreferrer"
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium"
               href="https://rpatnir.gumroad.com/l/evmjs"
             >
               {`Get it on Gumroad`}
             </a>
-          <Link href={"/demo"}>
-            <button className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium">See it in action!</button>
-          </Link>
-          
+            <Link href={"/demo"}>
+              <button className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium">
+                See it in action!
+              </button>
+            </Link>
           </div>
         </header>
 
@@ -53,16 +55,69 @@ const Home: NextPage = () => {
 
           <pre className="bg-slate-800 py-5 px-6 rounded overflow-x-auto">
             <code className="text-gray-300">
-              <span className="text-purple-400">{`import`}</span>{` { signInWithWallet } `}<span className="text-purple-400">{`from`}</span><span className="text-green-300">{` "lib/auth.client"`}</span>{`;\n`}
-              <span className="text-purple-400">{`import type`}</span>{` { `}<span className="text-yellow-400">{`NextPage`}</span>{` } from `}<span className="text-green-300">{`"next"`}</span>{`;\n`}
-              <span className="text-purple-400">{`import`}</span>{` { signOut, useSession } `}<span className="text-purple-400">{`from`}</span>{` `}<span className="text-green-300">{`"next-auth/react"`}</span>{`;\n`}
+              <span className="text-purple-400">{`import`}</span>
+              {` { signInWithWallet } `}
+              <span className="text-purple-400">{`from`}</span>
+              <span className="text-green-300">{` "lib/auth.client"`}</span>
+              {`;\n`}
+              <span className="text-purple-400">{`import type`}</span>
+              {` { `}
+              <span className="text-yellow-400">{`NextPage`}</span>
+              {` } from `}
+              <span className="text-green-300">{`"next"`}</span>
+              {`;\n`}
+              <span className="text-purple-400">{`import`}</span>
+              {` { signOut, useSession } `}
+              <span className="text-purple-400">{`from`}</span>
+              {` `}
+              <span className="text-green-300">{`"next-auth/react"`}</span>
+              {`;\n`}
               {`\n`}
-              <span className="text-purple-400">{`export default function`}</span><span className="text-yellow-400">{` Page`}</span>{`: `}<span className="text-blue-300">{`NextPage`}</span><span className="text-purple-400">{` = `}</span>{`()`}<span className="text-purple-400">{` => `}</span>{`{\n`}
-              <span className="text-purple-400">{`  const `}</span>{`session `}<span className="text-purple-400">{`= `}</span><span className="text-blue-300">{`useSession`}</span>{`();\n`}
-              <span className="text-purple-400">{`  if`}</span>{` (session.data) {\n`}
-              <span className="text-purple-400">{`    return`}</span><span className="text-gray-500">{` <`}</span><span className="text-blue-300">{`button `}</span><span className="text-orange-300">{`onClick`}</span><span className="text-purple-400">{`=`}</span>{`{() `}<span className="text-purple-400">{`=> `}</span><span className="text-blue-300">{`signOut`}</span>{`()}`}<span className="text-gray-500">{`>`}</span>{`Disconnect`}<span className="text-gray-500">{`</`}</span><span className="text-blue-300">{`button`}</span><span className="text-gray-500">{`>`}</span>{`;\n`}
-              {`  } `}<span className="text-purple-400">{`else`}</span>{` {\n`}
-              <span className="text-purple-400">{`    return `}</span><span className="text-gray-500">{`<`}</span><span className="text-blue-300">{`button `}</span><span className="text-orange-300">{`onClick`}</span><span className="text-purple-400">{`=`}</span>{`{signInWithWallet}`}<span className="text-gray-500">{`>`}</span>{`Connect wallet`}<span className="text-gray-500">{`</`}</span><span className="text-blue-300">{`button`}</span><span className="text-gray-500">{`>`}</span>{`;\n`}
+              <span className="text-purple-400">{`export default function`}</span>
+              <span className="text-yellow-400">{` Page`}</span>
+              {`: `}
+              <span className="text-blue-300">{`NextPage`}</span>
+              <span className="text-purple-400">{` = `}</span>
+              {`()`}
+              <span className="text-purple-400">{` => `}</span>
+              {`{\n`}
+              <span className="text-purple-400">{`  const `}</span>
+              {`session `}
+              <span className="text-purple-400">{`= `}</span>
+              <span className="text-blue-300">{`useSession`}</span>
+              {`();\n`}
+              <span className="text-purple-400">{`  if`}</span>
+              {` (session.data) {\n`}
+              <span className="text-purple-400">{`    return`}</span>
+              <span className="text-gray-500">{` <`}</span>
+              <span className="text-blue-300">{`button `}</span>
+              <span className="text-orange-300">{`onClick`}</span>
+              <span className="text-purple-400">{`=`}</span>
+              {`{() `}
+              <span className="text-purple-400">{`=> `}</span>
+              <span className="text-blue-300">{`signOut`}</span>
+              {`()}`}
+              <span className="text-gray-500">{`>`}</span>
+              {`Disconnect`}
+              <span className="text-gray-500">{`</`}</span>
+              <span className="text-blue-300">{`button`}</span>
+              <span className="text-gray-500">{`>`}</span>
+              {`;\n`}
+              {`  } `}
+              <span className="text-purple-400">{`else`}</span>
+              {` {\n`}
+              <span className="text-purple-400">{`    return `}</span>
+              <span className="text-gray-500">{`<`}</span>
+              <span className="text-blue-300">{`button `}</span>
+              <span className="text-orange-300">{`onClick`}</span>
+              <span className="text-purple-400">{`=`}</span>
+              {`{signInWithWallet}`}
+              <span className="text-gray-500">{`>`}</span>
+              {`Connect wallet`}
+              <span className="text-gray-500">{`</`}</span>
+              <span className="text-blue-300">{`button`}</span>
+              <span className="text-gray-500">{`>`}</span>
+              {`;\n`}
               {`  }\n`}
               {`}`}
             </code>
@@ -108,7 +163,8 @@ const Home: NextPage = () => {
 
           <pre className="bg-slate-800 py-5 px-6 rounded overflow-x-auto">
             <code className="text-gray-300">
-              <span className="text-gray-400">{`$`}</span>{` docker-compose up\n`}
+              <span className="text-gray-400">{`$`}</span>
+              {` docker-compose up\n`}
               <span className="text-gray-400">
                 {`[+] Running 3/0\n`}
                 {` ⠿ Container nextjs-web3-starter-app-1        Created  0.0s\n`}
