@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -20,10 +21,9 @@ const Home: NextPage = () => {
             className="inline-block p-3 border border-t-2 border-t-purple-500 rounded shadow-md mt-8 font-medium"
             href="#"
           >
-            {`Buy now for `}
-            <s>{`$500`}</s>
-            {` $400`}
+            {`Get it on Gumroad`}
           </a>
+          <Link href={"/demo"}>Go to demo!</Link>
         </header>
 
         <section className="flex flex-col lg:grid grid-cols-[40%_1fr] align-center gap-5 lg:gap-14">

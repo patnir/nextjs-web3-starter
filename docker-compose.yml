@@ -13,7 +13,7 @@ services:
       DATABASE_URL: postgresql://user:password@db:5432/development?connect_timeout=30
       NEXTAUTH_SECRET: "s3cr3t"
       NEXTAUTH_URL: "http://localhost:3000"
-      NEXT_PUBLIC_ETHEREUM_NETWORK_ID: "1337"
+      NEXT_PUBLIC_ETHEREUM_NETWORK_ID: "31337"
 
   db:
     image: postgres:latest

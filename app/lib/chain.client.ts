@@ -26,6 +26,10 @@ export async function getConnectedContract() {
     "0x" +
     parseInt(process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID || "1").toString(16);
 
+
+  console.log("process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID");
+  console.log(process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID);
+
   if (chainId !== targetNetworkId) {
     try {
       await ethereum.request({
@@ -49,10 +53,25 @@ export async function getConnectedContract() {
   return connectedContract;
 }
 
+export async function getBalance(session: any) {
+  const connectedContract = await getConnectedContract();
+  if (!connectedContract) return;
+  const result = await connectedContract.balanceOf(session.data.walletAddress)
+  return result
+}
+
+export async function getPrice(connectedContract: ethers.Contract) {
+  return await connectedContract.price();
+}
+
 export async function mint() {
   const connectedContract = await getConnectedContract();
   if (!connectedContract) return;
 
-  const transaction = await connectedContract.mint();
-  await transaction.wait();
+  const price = await getPrice(connectedContract);
+  const transaction = await connectedContract.mint({
+    value: price,
+  });
+  const result = await transaction.wait();
+  console.log(result);
 }

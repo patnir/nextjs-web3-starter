@@ -52,7 +52,8 @@ export async function signIn(provider: any) {
   // Verify Ethereum network.
   const networkId = (await web3.eth.net.getId()).toString();
   let targetNetworkId = process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID;
-
+  console.log("process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID");
+  console.log(process.env.NEXT_PUBLIC_ETHEREUM_NETWORK_ID);
   // Get accounts associated with Ethereum wallet.
   const accounts = await web3.eth.getAccounts();
   if (accounts.length === 0) {
