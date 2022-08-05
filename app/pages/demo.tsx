@@ -83,7 +83,7 @@ const ConnectedView = () => {
         {nftBalance >= 0 && <p>Current Cypherpunk balance: {nftBalance}</p>}
       </div>
       {loading && <div>loading...</div>}
-      {transactionLink && <div className='flex'><p>Success!</p><a target="_blank" className="underline text-blue-400" href={`https://goerli.etherscan.io/tx/${transactionLink}`}>Your transaction link</a></div>}
+      {transactionLink && <div className='flex'><p>Success!</p><a target="_blank" rel="noopener noreferrer" className="underline text-blue-400" href={`https://goerli.etherscan.io/tx/${transactionLink}`}>Your transaction link</a></div>}
 
       {nfts && process.env.SHOW_NFTS &&
         <><div className="text-lg">
