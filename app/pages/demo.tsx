@@ -64,13 +64,15 @@ const ConnectedView = () => {
 
       <div className="flex gap-4 my-4">
         <button
-          className={`bg-red-600 py-2 px-4 rounded-full text-white ${loading ? 'disabled' : ''}`}
+          className={`py-2 px-4 rounded-full text-white ${loading ? 'bg-gray-600' : 'bg-red-600'}`}
           onClick={() => signOut()}
+          disabled={loading}
         >
           {`Disconnect wallet`}
         </button>
         <button
-          className={`bg-green-600 py-2 px-4 rounded-full text-white ${loading ? 'disabled' : ''}`}
+          className={`bg-green-600 py-2 px-4 rounded-full text-white ${loading ? 'bg-gray-600' : 'bg-green-600'}`}
+          disabled={loading}
           onClick={async () => await mintNFT()}
         >
           Mint
@@ -81,7 +83,7 @@ const ConnectedView = () => {
         {nftBalance >= 0 && <p>Current Cypherpunk balance: {nftBalance}</p>}
       </div>
       {loading && <div>loading...</div>}
-      {transactionLink && <a href={`https://goerli.etherscan.io/tx/${transactionLink}`}>Your transaction link</a>}
+      {transactionLink && <div className='flex'><p>Success!</p><a target="_blank" className="underline text-blue-400" href={`https://goerli.etherscan.io/tx/${transactionLink}`}>Your transaction link</a></div>}
 
       {nfts && process.env.SHOW_NFTS &&
         <><div className="text-lg">

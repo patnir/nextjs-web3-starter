@@ -5,7 +5,7 @@ async function main() {
   const Cypherpunk = await ethers.getContractFactory("Cypherpunk");
   const contract = await Cypherpunk.deploy(
     "https://ikzttp.mypinata.cloud/ipfs/QmQFkLSQysj94s5GvTHPyzTxrawwtjgiiYS2TBLgrvw8CW/",
-    ethers.utils.parseEther("0.05")
+    ethers.utils.parseEther("0.00005")
   );
 
   await contract.deployed();

@@ -36,7 +36,7 @@
     "test": "hardhat test test/Cypherpunk.test.ts",
     "deploy-localhost": "npx hardhat run scripts/deploy.ts --network localhost",
     "deploy-testnet": "npx hardhat run scripts/deployTestnet.ts --network goerli",
-    "verify-contract": "npx hardhat verify --network goerli 0x0E74637a4B896e6a6fA8A272d7C566F0A32601fa --constructor-args constructor-args.js"
+    "verify-contract": "npx hardhat verify --network goerli 0x9b84ACBA9780Df6AfCb2C199929fC7eb62ab7116 --constructor-args constructor-args.js"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.6.0"
