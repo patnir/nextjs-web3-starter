@@ -60,7 +60,7 @@ const ConnectedView = () => {
 
   return (
     <>
-      <p>{`Welcome, ${session.data?.walletAddress}.`}</p>
+      <p>{`Hello, ${session.data?.walletAddress}.`}</p>
 
       <div className="flex gap-4 my-4">
         <button
