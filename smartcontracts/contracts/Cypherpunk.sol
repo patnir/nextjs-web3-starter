@@ -21,7 +21,7 @@ contract Cypherpunk is ERC721, Ownable {
         return baseURI;
     }
 
-    function mint() internal virtual {
+    function mint() external payable {
         require(total < MAX_PUNKS, "Sold Out");
         _safeMint(msg.sender, total, "");
         total += 1;

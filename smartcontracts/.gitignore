@@ -9,3 +9,5 @@ cache
 artifacts
 contract.json
 yarn-error.log
+
+.envrc
