@@ -42,7 +42,7 @@ pre-commit run --all-files
 
 - **Minimalistic by design:** You are one command away from creating a new Ethereum-powered Next JS app
 
-- **End-to-End**: Create Eth App provides you everything that you need to build and maintain an Ethereum-powered Next JS app: Authentication, Deploying smart contracts, Verifying smart contracts
+- **End-to-End**: This App provides you everything that you need to build and maintain an Ethereum-powered Next JS app: Authentication, Deploying smart contracts, Verifying smart contracts
 
 - **Not Reinventing The Wheel**: This just works! No experimental features. Stable and solid. 
 
