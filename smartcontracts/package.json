@@ -34,6 +34,7 @@
   },
   "scripts": {
     "test": "hardhat test test/Cypherpunk.test.ts",
+    "start-node": "npx hardhat node",
     "deploy-localhost": "npx hardhat run scripts/deploy.ts --network localhost",
     "deploy-testnet": "npx hardhat run scripts/deployTestnet.ts --network goerli",
     "verify-contract": "npx hardhat verify --network goerli 0x9b84ACBA9780Df6AfCb2C199929fC7eb62ab7116 --constructor-args constructor-args.js"
