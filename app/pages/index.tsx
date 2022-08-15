@@ -39,9 +39,9 @@ const Home: NextPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium"
-                href="https://rpatnir.gumroad.com/l/evmjs"
+                href="https://g9n6y7suwoz.typeform.com/to/qeFXvaQs"
               >
-                {`Get it on Gumroad`}
+                {`Sign up for the waitlist!`}
               </a>
               <Link href={"/demo"}>
                 <button className="inline-block m-10 p-3 border border-2 border-purple-500 rounded shadow-md mt-8 font-medium">
