@@ -36,9 +36,6 @@ pre-commit run --all-files
 
 **You’ll need to have Node 14 or later version on your local development machine** (but it’s not required on the server). You can use [nvm](https://github.com/creationix/nvm#installation) (macOS/Linux) or [nvm-windows](https://github.com/coreybutler/nvm-windows#node-version-manager-nvm-for-windows) to switch Node versions between different projects.
 
-**You'll also need Yarn on your local development machine**. This is because Create Eth App relies on Yarn
-Workspaces, a feature not supported by Npm.
-
 **For the best local development experience. you'll need Docker on your local development machine**.
 
 ## Philosophy
