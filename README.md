@@ -15,14 +15,6 @@ Your environment will have everything you need to build a modern Ethereum-powere
 - Minimalist structure for managing the smart contract [ABIs](https://ethereum.stackexchange.com/questions/234/what-is-an-abi-and-why-is-it-needed-to-interact-with-contracts) and addresses
 - Everything is dockerized! Just `docker-compose up` and GO!
 
-Precommit:
-
-```
-brew install pre-commit
-pre-commit install
-pre-commit run --all-files
-```
-
 ## How to get started: 
 
 ```
@@ -31,6 +23,14 @@ docker-compose up
 
 Then open [http://localhost:3000/](http://localhost:3000/) to see your app.<br>
 
+#### How to install precommit:
+Precommit is a check to ensure that your code's styling is consistent and always upto date.
+
+```
+brew install pre-commit
+pre-commit install
+pre-commit run --all-files
+```
 
 ## Creating an App
 
